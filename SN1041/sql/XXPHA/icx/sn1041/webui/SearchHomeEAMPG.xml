@@ -1,0 +1,545 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="PageLayoutRN" windowTitle="Поиск" title="ЕФПП ЕАМ" controllerClass="xxpha.oracle.apps.icx.sn1041.webui.SearchHomeCO" amDefName="xxpha.oracle.apps.icx.sn1041.server.SearchAM">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:tableLayout id="region12" hAlign="left">
+               <ui:contents>
+                  <oa:rowLayout id="region13">
+                     <ui:contents>
+                        <oa:cellFormat id="region14">
+                           <ui:contents>
+                              <oa:messageStyledText id="OENameMST" prompt="Организация" viewName="ParametersVO1" viewAttr="Name"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="region15" amDefName="xxpha.oracle.apps.icx.sn1041.server.SessionAM" amUsageName="SessionAM1">
+                           <ui:contents>
+                              <oa:messageTextInput id="StoreName" viewName="SessionVO1" viewAttr="OrganizationName" dataType="VARCHAR2" prompt="Склад-получатель" required="yes" readOnly="true"/>
+                           </ui:contents>
+                        </oa:cellFormat>
+                        <oa:cellFormat id="region151" amDefName="xxpha.oracle.apps.icx.sn1041.server.SessionAM" amUsageName="SessionAM1">
+                           <ui:contents>
+                              <oa:messageLovChoice id="WipEntity" viewName="SessionVO1" viewAttr="WipEntityId" pickListDispAttr="WipEntityName" pickListValAttr="WipEntityId" dataType="NUMBER" prompt="№ ЗВР/ЗР" required="yes" warnAboutChanges="true">
+                                 <lovContents>
+                                    <oa:listOfValues id="region281" amDefName="xxpha.oracle.apps.icx.sn1041.lov.server.LovsAM">
+                                       <ui:contents>
+                                          <oa:table name="region281" id="WipEntitiesListVO" amDefName="xxpha.oracle.apps.icx.sn1041.lov.server.LovsAM" text="№ ЗВР/ЗР">
+                                             <ui:contents>
+                                                <oa:messageStyledText id="WipEntityId" dataType="NUMBER" prompt="ЗВР Id" viewName="WipEntitiesListVO1" viewAttr="WipEntityId" maximumLength="15" rendered="false"/>
+                                                <oa:messageStyledText id="WipEntityNumber" dataType="VARCHAR2" prompt="№ ЗВР" viewName="WipEntitiesListVO1" viewAttr="WipEntityName" maximumLength="240" queryable="true"/>
+                                                <oa:messageStyledText id="WipEntityDescription" dataType="VARCHAR2" prompt="Описание" viewName="WipEntitiesListVO1" viewAttr="Sn1041Description" maximumLength="240" queryable="true"/>
+                                                <oa:messageStyledText id="WipOrganizationId" viewName="WipEntitiesListVO1" viewAttr="OrganizationId" rendered="false"/>
+                                                <oa:messageStyledText id="WipHasRequirements" viewName="WipEntitiesListVO1" viewAttr="HasRequirements" prompt="Материалы"/>
+                                             </ui:contents>
+                                          </oa:table>
+                                       </ui:contents>
+                                    </oa:listOfValues>
+                                 </lovContents>
+                                 <lovMappings>
+                                    <lovMap id="lovMap2" lovItem="WipEntityId" resultTo="WipEntity" criteriaFrom="WipEntity"/>
+                                 </lovMappings>
+                                 <ui:primaryClientAction>
+                                    <ui:fireAction event="WipEntityChange"/>
+                                 </ui:primaryClientAction>
+                              </oa:messageLovChoice>
+                           </ui:contents>
+                        </oa:cellFormat>
+                     </ui:contents>
+                  </oa:rowLayout>
+               </ui:contents>
+            </oa:tableLayout>
+            <oa:header id="searchHeaderRN" text="Поиск">
+               <ui:contents>
+                  <oa:tableLayout id="region1" hAlign="left">
+                     <ui:contents>
+                        <oa:rowLayout id="region2">
+                           <ui:contents>
+                              <oa:cellFormat id="region5">
+                                 <ui:contents>
+                                    <oa:messageCheckBox id="cbElasticEnabled" prompt="Включить ГП" defaultValue="Y" checkedValue="Y" unCheckedValue="N" styleClass="OraFieldText" text="Включить ГП"/>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                              <oa:cellFormat id="region3">
+                                 <ui:contents>
+                                    <oa:messageTextInput id="SearchTextInput" prompt="Позиция" columns="50" styleClass="OraFieldText" required="no" translatableDefaultValue=""/>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                              <oa:cellFormat id="region4">
+                                 <ui:contents>
+                                    <oa:submitButton id="SearchButton" use="/oracle/apps/fnd/attributesets/Buttons/Go" shortDesc="Нажмите для просмотра результатов поиска"/>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                              <oa:cellFormat id="region22415" width="400" hAlign="right">
+                                 <ui:contents>
+                                    <oa:messageTextInput id="QuantityLastUpdateMTI" prompt="Последнее обновление остатков" viewName="ParametersVO1" viewAttr="QuantityLastUpdate" dataType="VARCHAR2" readOnly="true" styleClass="OraGlobalHeaderSelected"/>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                              <oa:cellFormat id="region224151">
+                                 <ui:contents>
+                                    <oa:messageTextInput id="QuantityNexttUpdateMTI" prompt="следующее обновление" viewName="ParametersVO1" viewAttr="QuantityNextUpdate" dataType="VARCHAR2" readOnly="true" styleClass="OraErrorNameText"/>
+                                 </ui:contents>
+                              </oa:cellFormat>
+                           </ui:contents>
+                        </oa:rowLayout>
+                     </ui:contents>
+                  </oa:tableLayout>
+                  <oa:separator id="item1"/>
+                  <oa:advancedTable id="FoundItemsTbl" viewName="SearchResultsVO1" shortDesc="Таблица результатов поиска" tableBanding="rowBanding" controllerClass="xxpha.oracle.apps.icx.sn1041.webui.SearchResultsCO" rowNavigationPolicy="scroll" blockSize="8">
+                     <ui:contents>
+                        <oa:column id="ItemCode1" columnDataFormat="textFormat" cellNoWrapFormat="false" bandingShade="dark" width="30">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader22" prompt="Операция" cellNoWrapFormat="true"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="itemCodeMST1" viewAttr="OperationSeqNum"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="ResultOperDescID" columnDataFormat="textFormat" cellNoWrapFormat="false" bandingShade="dark" width="30">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="ResultOperDescHeader" prompt="Описание операции" cellNoWrapFormat="true"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="ResultOperDescItem" viewAttr="OperationDescription"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="ItemCode" columnDataFormat="textFormat" cellNoWrapFormat="false" bandingShade="dark" width="30">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader2" prompt="Номенклатурный номер позиции" cellNoWrapFormat="true"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="itemCodeMST" viewAttr="ItemCode"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="ItemDescrition" columnDataFormat="objectNameFormat" width="30" user:attribute1="XXX">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader1" prompt="Описание позиции КИС"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="ItemDescriptionMST" viewAttr="Description"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="CatalogCode">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader3" prompt="Каталожный номер позиции"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="item3" viewAttr="CatalogCode"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="SupplierDescription">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader4" prompt="Описание позиции поставщика"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="item4" viewAttr="SupDescription"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="Uom">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader6" prompt="ЕИ"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="item6" viewAttr="Uom"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="Price" columnDataFormat="numberFormat">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader5" prompt="Цена"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="PriceMST" viewAttr="Price" dataType="NUMBER" rendered="false"/>
+                              <oa:messageStyledText id="DispPriceMST" viewAttr="DispPrice"/>
+                              <oa:formValue id="IndexNameMST" viewAttr="IndexName" rendered="true"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:columnGroup id="CSGroup">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader7" prompt="Центральный склад"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:column id="CSQuantity" columnDataFormat="numberFormat">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader8" prompt="Всего"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="CSQuantityMST" viewAttr="CsQuantity" dataType="NUMBER" popupEnabled="true" popupId="DetailedPopUp"/>
+                                    <oa:tableLayout id="region222">
+                                       <ui:contents>
+                                          <oa:rowLayout id="region223">
+                                             <ui:contents>
+                                                <oa:cellFormat id="region224">
+                                                   <ui:contents>
+                                                      <oa:popUp id="DetailedPopUp" popupRegion="/xxpha/oracle/apps/icx/sn1041/webui/DetailedRN" width="1000" popupType="ParameterizedPopup" popupParameters="ItemId={@InventoryItemId}&amp;StoreId={@CsStoreId}&amp;Curr=Y" autoResizeEnabled="true" notchShown="true"/>
+                                                   </ui:contents>
+                                                </oa:cellFormat>
+                                             </ui:contents>
+                                          </oa:rowLayout>
+                                       </ui:contents>
+                                    </oa:tableLayout>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="CSAvailable" columnDataFormat="numberFormat">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader9" prompt="Доступно"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="CSAvailableMST" viewAttr="CsAvailableQuantity" dataType="NUMBER" popupId="DetailedPopUp" popupEnabled="true"/>
+                                 </ui:contents>
+                              </oa:column>
+                           </ui:contents>
+                        </oa:columnGroup>
+                        <oa:columnGroup id="StoreGroup">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader71" prompt="Цеховой склад заявителя"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:column id="StoreQuantity" columnDataFormat="numberFormat">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader81" prompt="Всего"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="StoreQuantityMST" viewAttr="StoreQuantity" dataType="NUMBER" popupId="DetailedPopUp1" popupEnabled="true"/>
+                                    <oa:tableLayout id="region2221">
+                                       <ui:contents>
+                                          <oa:rowLayout id="region2231">
+                                             <ui:contents>
+                                                <oa:cellFormat id="region2241">
+                                                   <ui:contents>
+                                                      <oa:popUp id="DetailedPopUp1" popupRegion="/xxpha/oracle/apps/icx/sn1041/webui/DetailedRN" width="1000" popupType="ParameterizedPopup" popupParameters="ItemId={@InventoryItemId}&amp;StoreId={@CurrentStoreId}&amp;Curr=Y" autoResizeEnabled="true" notchShown="true"/>
+                                                   </ui:contents>
+                                                </oa:cellFormat>
+                                             </ui:contents>
+                                          </oa:rowLayout>
+                                       </ui:contents>
+                                    </oa:tableLayout>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="StoreAvailable" columnDataFormat="numberFormat">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader91" prompt="Доступно"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="StoreAvailableMST" viewAttr="StoreAvailableQuantity" dataType="NUMBER" popupId="DetailedPopUp1" popupEnabled="true"/>
+                                 </ui:contents>
+                              </oa:column>
+                           </ui:contents>
+                        </oa:columnGroup>
+                        <oa:columnGroup id="HoldingGroup">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader711" prompt="Склады холдинга"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:column id="HoldingQuantity" columnDataFormat="numberFormat">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader811" prompt="Всего"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="HoldingQuantityMST" viewAttr="HoldingQuantity" dataType="NUMBER" popupId="DetailedPopUp2" popupEnabled="true"/>
+                                    <oa:tableLayout id="region22211">
+                                       <ui:contents>
+                                          <oa:rowLayout id="region22311">
+                                             <ui:contents>
+                                                <oa:cellFormat id="region22411">
+                                                   <ui:contents>
+                                                      <oa:popUp id="DetailedPopUp2" popupRegion="/xxpha/oracle/apps/icx/sn1041/webui/DetailedRN" width="1000" popupType="ParameterizedPopup" popupParameters="ItemId={@InventoryItemId}&amp;StoreId={@CurrentStoreId}&amp;CsId={@CsStoreId}&amp;Curr=N" autoResizeEnabled="true" notchShown="true"/>
+                                                   </ui:contents>
+                                                </oa:cellFormat>
+                                             </ui:contents>
+                                          </oa:rowLayout>
+                                       </ui:contents>
+                                    </oa:tableLayout>
+                                 </ui:contents>
+                              </oa:column>
+                              <oa:column id="HoldingAvailable" columnDataFormat="numberFormat">
+                                 <ui:columnHeader>
+                                    <oa:sortableHeader id="sortableHeader911" prompt="Доступно"/>
+                                 </ui:columnHeader>
+                                 <ui:contents>
+                                    <oa:messageStyledText id="HoldingAvailableMST" viewAttr="HoldingAvailableQuantity" dataType="NUMBER" popupId="DetailedPopUp2" popupEnabled="true"/>
+                                 </ui:contents>
+                              </oa:column>
+                           </ui:contents>
+                        </oa:columnGroup>
+                        <oa:column id="DueDeliveryDate" columnDataFormat="numberFormat">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="DueDeliveryHeader" prompt="Расчетная дата поставки"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="DueDateMST" viewAttr="DueDate" popupEnabled="false" dataType="DATE"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="Deliveries" columnDataFormat="numberFormat">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader41" prompt="Ожидаемые поставки"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="DeliveriesMST" viewAttr="Deliveries" popupEnabled="true" dataType="NUMBER" popupId="StatusDetailedPopup"/>
+                              <oa:tableLayout id="region22412">
+                                 <ui:contents>
+                                    <oa:rowLayout id="region22413">
+                                       <ui:contents>
+                                          <oa:cellFormat id="region22414">
+                                             <ui:contents>
+                                                <oa:popUp id="StatusDetailedPopup" popupType="ParameterizedPopup" popupRegion="/xxpha/oracle/apps/icx/sn1041/webui/StatusDetailedRN" readOnly="false" popupTitle="Детализация по ожидаемым поставкам" popupParameters="ItemId={@InventoryItemId}" width="1000" notchShown="true" autoResizeEnabled="true"/>
+                                             </ui:contents>
+                                          </oa:cellFormat>
+                                       </ui:contents>
+                                    </oa:rowLayout>
+                                 </ui:contents>
+                              </oa:tableLayout>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="Supplier">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader411" prompt="Поставщик"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="item411" viewAttr="Supplier"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="Agreement">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="AgreementHeader" prompt="ОСЗ"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="AgreementMST" viewAttr="Agreement"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="Image">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader4111" prompt="Визуализация"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:link id="imageLink" text="" destination="{$Image}" targetFrame="blank" viewAttr="ImageText" popupRenderEvent="onClick" popupEnabled="false"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="Analog">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader41111" prompt="Аналог"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:tableLayout id="region191" hAlign="center">
+                                 <ui:contents>
+                                    <oa:rowLayout id="region201" hAlign="center">
+                                       <ui:contents>
+                                          <oa:cellFormat id="region211" rendered="false">
+                                             <ui:contents>
+                                                <oa:messageStyledText id="AnalogMST" viewAttr="Analog"/>
+                                             </ui:contents>
+                                          </oa:cellFormat>
+                                          <oa:cellFormat id="region221" hAlign="center">
+                                             <ui:contents>
+                                                <oa:image id="AnalogImage" source="/OA_MEDIA/sn1041/ANALOG.png" rendered="${oa.current.IsAnalogRendered}" popupEnabled="true" popupId="AnalogPopUp">
+                                                   <ui:primaryClientAction>
+                                                      <ui:fireAction event="updateTbl" formSubmitted="false" id="fireAction2"/>
+                                                   </ui:primaryClientAction>
+                                                </oa:image>
+                                                <oa:popUp id="AnalogPopUp" popupType="ParameterizedPopup" popupRegion="/xxpha/oracle/apps/icx/sn1041/webui/AnalogRN" isModal="true" autoResizeEnabled="true" popupTitle="Аналоги КИС" width="1000" popupParameters="ItemId={@InventoryItemId}&amp;EAM=Y" notchShown="true"/>
+                                             </ui:contents>
+                                          </oa:cellFormat>
+                                       </ui:contents>
+                                    </oa:rowLayout>
+                                 </ui:contents>
+                              </oa:tableLayout>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="Deactivation" columnDataFormat="iconButtonFormat">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader411111" prompt="К деактивации"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:tableLayout id="region19" hAlign="center">
+                                 <ui:contents>
+                                    <oa:rowLayout id="region20" hAlign="center">
+                                       <ui:contents>
+                                          <oa:cellFormat id="region21" rendered="false">
+                                             <ui:contents>
+                                                <oa:messageStyledText id="item411111" viewAttr="Deactivation"/>
+                                             </ui:contents>
+                                          </oa:cellFormat>
+                                          <oa:cellFormat id="region22" hAlign="center">
+                                             <ui:contents>
+                                                <oa:image id="DeactivationImage" source="/OA_MEDIA/sn1041/DEACTIVE.png" rendered="${oa.current.IsDeactRendered}"/>
+                                             </ui:contents>
+                                          </oa:cellFormat>
+                                       </ui:contents>
+                                    </oa:rowLayout>
+                                 </ui:contents>
+                              </oa:tableLayout>
+                           </ui:contents>
+                        </oa:column>
+                     </ui:contents>
+                     <ui:tableSelection>
+                        <oa:multipleSelection id="multipleSelection1" viewAttr="SelectedItem" rendered="true">
+                           <ui:contents>
+                              <oa:flowLayout id="region18">
+                                 <ui:contents>
+                                    <oa:submitButton id="CreateItem" text="Создать позицию" prompt="Создать позицию"/>
+                                    <oa:submitButton id="ClearSelection" text="Очистить" prompt="Очистить"/>
+                                    <oa:submitButton id="refresh" text="Обновить" prompt="Обновить"/>
+                                    <oa:submitButton id="AddSelectionEam" text="Добавить в выборку" prompt="Добавить в выборку"/>
+                                    <oa:submitButton id="RefreshPrice" text="Обновить цену" prompt="Обновить цену"/>
+                                 </ui:contents>
+                              </oa:flowLayout>
+                           </ui:contents>
+                        </oa:multipleSelection>
+                     </ui:tableSelection>
+                     <ui:tableActions>
+                        <oa:flowLayout id="region17">
+                           <ui:contents>
+                              <oa:submitButton id="showSelection" prompt="Просмотр выбранных позиций"/>
+                           </ui:contents>
+                        </oa:flowLayout>
+                     </ui:tableActions>
+                  </oa:advancedTable>
+               </ui:contents>
+            </oa:header>
+            <oa:hideShowHeader id="ItemListForRequisition" text="Список позиций для заявок">
+               <ui:contents>
+                  <oa:advancedTable id="ForRequisitionTbl" amDefName="xxpha.oracle.apps.icx.sn1041.server.SearchAM" viewName="Table5SourceVO1">
+                     <ui:contents>
+                        <oa:column id="LineNum" columnDataFormat="numberFormat">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader12" prompt="№ строки"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="item12" viewAttr="LineNum" dataType="NUMBER"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="OperationSequence">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader211" prompt="Операция"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="item211" viewAttr="OperationSeqNum"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="OperDesc">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="OperDescHeader" prompt="Описание операции"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="OperDescItem" viewAttr="OperationDescription"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="ItemCodeReq">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader21" prompt="Номенклатурный номер КИС"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="item21" viewAttr="ItemCode"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="ItemDescrition1">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader11" prompt="Описание позиции КИС"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="item111" viewAttr="Descriptions"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="CatalogCode1">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader31" prompt="Каталожный номер"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="item31" viewAttr="CatalogNum"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="SupplierDescription1">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader411112" prompt="Описание позиции поставщика"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="item411112" viewAttr="SupDescription"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="Uom1">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader61" prompt="ЕИ"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="item61" viewAttr="Uom"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="CSAvailableReq" columnDataFormat="numberFormat">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader912" prompt="Доступно на ЦС"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="item812" viewAttr="CsAvailableQuantity" dataType="NUMBER"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="WipDueDateColumn">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="WipDueDateHeader" prompt="Расчетная дата поставки"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="WipDueDateMST" dataType="DATE" viewAttr="WipDueDate"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="DeliveryTerm" columnDataFormat="numberFormat">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader411113" prompt="Срок поставки"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="item411113" viewAttr="DeliveryDate"/>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="Deactivation1" columnDataFormat="iconButtonFormat">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="sortableHeader4111111" prompt="К деактивации"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:tableLayout id="region23" hAlign="center" width="20">
+                                 <ui:contents>
+                                    <oa:rowLayout id="region24" hAlign="center" width="20">
+                                       <ui:contents>
+                                          <oa:cellFormat id="region25" rendered="false">
+                                             <ui:contents>
+                                                <oa:messageStyledText id="item4111111" viewAttr="Deactivation"/>
+                                             </ui:contents>
+                                          </oa:cellFormat>
+                                          <oa:cellFormat id="region26" hAlign="center">
+                                             <ui:contents>
+                                                <oa:image id="item4111114" source="/OA_MEDIA/sn1041/DEACTIVE.png" rendered="${oa.current.IsDeactivationRendered}"/>
+                                             </ui:contents>
+                                          </oa:cellFormat>
+                                       </ui:contents>
+                                    </oa:rowLayout>
+                                 </ui:contents>
+                              </oa:tableLayout>
+                           </ui:contents>
+                        </oa:column>
+                        <oa:column id="DeleteColumn" columnDataFormat="iconButtonFormat">
+                           <ui:columnHeader>
+                              <oa:sortableHeader id="DeleteLineHeader" prompt="Удалить строку"/>
+                           </ui:columnHeader>
+                           <ui:contents>
+                              <oa:messageStyledText id="item4111112" viewAttr="DeleteLine"/>
+                              <oa:switcher id="region27" use="/oracle/apps/fnd/attributesets/Buttons/Delete" viewAttr="DeleteImage">
+                                 <ui:case name="DeleteEnabled">
+                                    <oa:image id="DeleteEnabled" source="deleteicon_enabled.gif" imageHeight="24" imageWidth="24" shortDesc="Удалить строку из таблицы." viewAttr="DeleteImage">
+                                       <ui:primaryClientAction>
+                                          <ui:fireAction event="delete" id="fireAction11">
+                                             <ui:parameters>
+                                                <ui:parameter key="LineNum" value="${oa.Table5SourceVO1.LineNum}"/>
+                                             </ui:parameters>
+                                          </ui:fireAction>
+                                       </ui:primaryClientAction>
+                                    </oa:image>
+                                 </ui:case>
+                              </oa:switcher>
+                           </ui:contents>
+                        </oa:column>
+                     </ui:contents>
+                  </oa:advancedTable>
+               </ui:contents>
+            </oa:hideShowHeader>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

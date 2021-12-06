@@ -1,0 +1,490 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="Table5SourceVO"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   RowClass="xxpha.oracle.apps.icx.sn1041.server.Table5SourceVORowImpl"
+   ComponentClass="xxpha.oracle.apps.icx.sn1041.server.Table5SourceVOImpl"
+   FetchMode="FETCH_AS_NEEDED"
+   Passivate="None"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+SELECT Table5SourceEO.LINE_NUM, 
+       Table5SourceEO.ITEM_ID, 
+       Table5SourceEO.DESCRIPTIONS, 
+       Table5SourceEO.ITEM_CODE, 
+       Table5SourceEO.CATALOG_NUM, 
+       Table5SourceEO.SUP_DESCRIPTION, 
+       Table5SourceEO.UOM, 
+       Table5SourceEO.NEED_BY_DATE, 
+       Table5SourceEO.QUANTITY, 
+       Table5SourceEO.UNIT_PRICE, 
+       Table5SourceEO.SUPPLIER_ID, 
+       Table5SourceEO.SOURCE_ORGANIZATION_ID, 
+       Table5SourceEO.DEST_ORGANIZATION_ID, 
+       Table5SourceEO.PREPARER_ID, 
+       Table5SourceEO.DELIVER_TO_LOCATION_ID, 
+       Table5SourceEO.DELIVER_TO_REQUESTOR_ID, 
+       Table5SourceEO.ORG_ID, 
+       Table5SourceEO.REQ_LINE_ID, 
+       Table5SourceEO.IS_PROCESSED, 
+       Table5SourceEO.CS_AVAILABLE_QUANTITY, 
+       Table5SourceEO.SUPPLIER, 
+       Table5SourceEO.DELIVERY_DATE,
+       Table5SourceEO.DEACTIVATION,
+       Table5SourceEO.INDEX_NAME,  
+       Table5SourceEO.DELETE_LINE, 
+       Table5SourceEO.REQUISITION_TYPE, 
+       Table5SourceEO.CREATED_BY, 
+       Table5SourceEO.CREATION_DATE, 
+       Table5SourceEO.LAST_UPDATED_BY, 
+       Table5SourceEO.LAST_UPDATE_DATE, 
+       Table5SourceEO.LAST_UPDATE_LOGIN, 
+       Table5SourceEO.OBJECT_VERSION_NUMBER,
+       Table5SourceEO.req_item_id,
+       REQ_HEADER_NUM,
+       REQ_LINE_QTY,
+       STATUS,
+       OPERATION_SEQ_NUM,
+       (select o.DESCRIPTION
+       from xxpha_sn1041_wip_operations_v o
+       where o.wip_entity_id = Table5SourceEO.WIP_ENTITY_ID
+        and o.operation_seq_num = Table5SourceEO.OPERATION_SEQ_NUM) operation_description,
+       WIP_ENTITY_ID,
+       (select we.wip_entity_name
+       from wip_entities we
+       where we.WIP_ENTITY_ID = Table5SourceEO.Wip_Entity_Id) wip_entity_name,
+       Table5SourceEO.CFO,
+       Table5SourceEO.MVZ,
+       /*nvl((select 'Y' from wip_requirement_operations wor
+        where 1=1
+        and wor.wip_entity_id = Table5SourceEO.WIP_ENTITY_ID
+        and wor.operation_seq_num = Table5SourceEO.OPERATION_SEQ_NUM
+        and wor.inventory_item_id = Table5SourceEO.ITEM_ID
+        ), 'N')*/ 'N' orig_wro_flag,
+       Table5SourceEO.WIP_DATE_REQUIRED,
+       Table5SourceEO.WIP_SUBINVENTORY,
+       Table5SourceEO.WIP_LOCATOR_ID,
+       Table5SourceEO.WIP_GL_DATE,
+       Table5SourceEO.WIP_BUYER_NOTES,
+       Table5SourceEO.WIP_OL_NUM,
+       Table5SourceEO.WIP_OL_DATE,
+       Table5SourceEO.WIP_DUE_DATE
+FROM XXPHA.XXPHA_SN1041_REQ_ITEMS Table5SourceEO
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess" />
+   </DesignTime>
+   <EntityUsage
+      Name="Table5SourceEO"
+      Entity="xxpha.oracle.apps.icx.sn1041.server.Table5SourceEO" >
+      <DesignTime>
+         <Attr Name="_queryClause" Value="false" />
+      </DesignTime>
+   </EntityUsage>
+   <ViewAttribute
+      Name="LineNum"
+      EntityAttrName="LineNum"
+      EntityUsage="Table5SourceEO"
+      AliasName="LINE_NUM" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ItemId"
+      IsNotNull="true"
+      EntityAttrName="ItemId"
+      EntityUsage="Table5SourceEO"
+      AliasName="ITEM_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Descriptions"
+      EntityAttrName="Descriptions"
+      EntityUsage="Table5SourceEO"
+      AliasName="DESCRIPTIONS" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ItemCode"
+      EntityAttrName="ItemCode"
+      EntityUsage="Table5SourceEO"
+      AliasName="ITEM_CODE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CatalogNum"
+      EntityAttrName="CatalogNum"
+      EntityUsage="Table5SourceEO"
+      AliasName="CATALOG_NUM" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SupDescription"
+      EntityAttrName="SupDescription"
+      EntityUsage="Table5SourceEO"
+      AliasName="SUP_DESCRIPTION" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Uom"
+      EntityAttrName="Uom"
+      EntityUsage="Table5SourceEO"
+      AliasName="UOM" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NeedByDate"
+      EntityAttrName="NeedByDate"
+      EntityUsage="Table5SourceEO"
+      AliasName="NEED_BY_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Quantity"
+      EntityAttrName="Quantity"
+      EntityUsage="Table5SourceEO"
+      AliasName="QUANTITY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="UnitPrice"
+      EntityAttrName="UnitPrice"
+      EntityUsage="Table5SourceEO"
+      AliasName="UNIT_PRICE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SupplierId"
+      EntityAttrName="SupplierId"
+      EntityUsage="Table5SourceEO"
+      AliasName="SUPPLIER_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SourceOrganizationId"
+      EntityAttrName="SourceOrganizationId"
+      EntityUsage="Table5SourceEO"
+      AliasName="SOURCE_ORGANIZATION_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DestOrganizationId"
+      EntityAttrName="DestOrganizationId"
+      EntityUsage="Table5SourceEO"
+      AliasName="DEST_ORGANIZATION_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PreparerId"
+      EntityAttrName="PreparerId"
+      EntityUsage="Table5SourceEO"
+      AliasName="PREPARER_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DeliverToLocationId"
+      EntityAttrName="DeliverToLocationId"
+      EntityUsage="Table5SourceEO"
+      AliasName="DELIVER_TO_LOCATION_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DeliverToRequestorId"
+      EntityAttrName="DeliverToRequestorId"
+      EntityUsage="Table5SourceEO"
+      AliasName="DELIVER_TO_REQUESTOR_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="OrgId"
+      EntityAttrName="OrgId"
+      EntityUsage="Table5SourceEO"
+      AliasName="ORG_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ReqLineId"
+      EntityAttrName="ReqLineId"
+      EntityUsage="Table5SourceEO"
+      AliasName="REQ_LINE_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="IsProcessed"
+      IsNotNull="true"
+      EntityAttrName="IsProcessed"
+      EntityUsage="Table5SourceEO"
+      AliasName="IS_PROCESSED" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CsAvailableQuantity"
+      EntityAttrName="CsAvailableQuantity"
+      EntityUsage="Table5SourceEO"
+      AliasName="CS_AVAILABLE_QUANTITY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Supplier"
+      EntityAttrName="Supplier"
+      EntityUsage="Table5SourceEO"
+      AliasName="SUPPLIER" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DeliveryDate"
+      EntityAttrName="DeliveryDate"
+      EntityUsage="Table5SourceEO"
+      AliasName="DELIVERY_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Deactivation"
+      EntityAttrName="Deactivation"
+      EntityUsage="Table5SourceEO"
+      AliasName="DEACTIVATION" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="IndexName"
+      IsPersistent="false"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="INDEX_NAME"
+      Expression="INDEX_NAME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DeleteLine"
+      EntityAttrName="DeleteLine"
+      EntityUsage="Table5SourceEO"
+      AliasName="DELETE_LINE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RequisitionType"
+      EntityAttrName="RequisitionType"
+      EntityUsage="Table5SourceEO"
+      AliasName="REQUISITION_TYPE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreatedBy"
+      IsNotNull="true"
+      EntityAttrName="CreatedBy"
+      EntityUsage="Table5SourceEO"
+      AliasName="CREATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreationDate"
+      IsNotNull="true"
+      EntityAttrName="CreationDate"
+      EntityUsage="Table5SourceEO"
+      AliasName="CREATION_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdatedBy"
+      IsNotNull="true"
+      EntityAttrName="LastUpdatedBy"
+      EntityUsage="Table5SourceEO"
+      AliasName="LAST_UPDATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateDate"
+      IsNotNull="true"
+      EntityAttrName="LastUpdateDate"
+      EntityUsage="Table5SourceEO"
+      AliasName="LAST_UPDATE_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateLogin"
+      EntityAttrName="LastUpdateLogin"
+      EntityUsage="Table5SourceEO"
+      AliasName="LAST_UPDATE_LOGIN" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="IsDeactivationRendered"
+      IsUpdateable="false"
+      IsSelected="false"
+      IsPersistent="false"
+      Type="java.lang.Boolean"
+      ColumnType="NUMBER"
+      AliasName="VIEW_ATTR"
+      SQLType="BIT" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DeleteImage"
+      IsUpdateable="false"
+      IsSelected="false"
+      IsPersistent="false"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VIEW_ATTR"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="IsSelected"
+      IsSelected="false"
+      IsPersistent="false"
+      DefaultValue="Y"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VIEW_ATTR"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ObjectVersionNumber"
+      EntityAttrName="ObjectVersionNumber"
+      EntityUsage="Table5SourceEO"
+      AliasName="OBJECT_VERSION_NUMBER" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ReqItemId"
+      IsNotNull="true"
+      EntityAttrName="ReqItemId"
+      EntityUsage="Table5SourceEO"
+      AliasName="REQ_ITEM_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ReqHeaderNum"
+      IsUpdateable="false"
+      EntityAttrName="ReqHeaderNum"
+      EntityUsage="Table5SourceEO"
+      AliasName="REQ_HEADER_NUM" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ReqLineQty"
+      IsUpdateable="false"
+      EntityAttrName="ReqLineQty"
+      EntityUsage="Table5SourceEO"
+      AliasName="REQ_LINE_QTY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Status"
+      IsUpdateable="false"
+      EntityAttrName="Status"
+      EntityUsage="Table5SourceEO"
+      AliasName="STATUS" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="isReadOnly"
+      IsSelected="false"
+      IsPersistent="false"
+      Type="java.lang.Boolean"
+      ColumnType="NUMBER"
+      AliasName="VIEW_ATTR"
+      Passivate="true"
+      SQLType="BIT" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="isRendered"
+      IsSelected="false"
+      IsPersistent="false"
+      Type="java.lang.Boolean"
+      ColumnType="NUMBER"
+      AliasName="VIEW_ATTR"
+      Passivate="true"
+      SQLType="BIT" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="OperationSeqNum"
+      EntityAttrName="OperationSeqNum"
+      EntityUsage="Table5SourceEO"
+      AliasName="OPERATION_SEQ_NUM" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="OperationDescription"
+      IsPersistent="false"
+      Precision="240"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="OPERATION_DESCRIPTION"
+      Expression="OPERATION_DESCRIPTION"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="240" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="WipEntityId"
+      EntityAttrName="WipEntityId"
+      EntityUsage="Table5SourceEO"
+      AliasName="WIP_ENTITY_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="WipEntityName"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="WIP_ENTITY_NAME"
+      Expression="WIP_ENTITY_NAME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="240" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Cfo"
+      EntityAttrName="Cfo"
+      EntityUsage="Table5SourceEO"
+      AliasName="CFO" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Mvz"
+      EntityAttrName="Mvz"
+      EntityUsage="Table5SourceEO"
+      AliasName="MVZ" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="OrigWroFlag"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="ORIG_WRO_FLAG"
+      Expression="ORIG_WRO_FLAG"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="WipDateRequired"
+      EntityAttrName="WipDateRequired"
+      EntityUsage="Table5SourceEO"
+      AliasName="WIP_DATE_REQUIRED" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="WipSubinventory"
+      EntityAttrName="WipSubinventory"
+      EntityUsage="Table5SourceEO"
+      AliasName="WIP_SUBINVENTORY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="WipLocatorId"
+      EntityAttrName="WipLocatorId"
+      EntityUsage="Table5SourceEO"
+      AliasName="WIP_LOCATOR_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="WipGlDate"
+      EntityAttrName="WipGlDate"
+      EntityUsage="Table5SourceEO"
+      AliasName="WIP_GL_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="WipBuyerNotes"
+      EntityAttrName="WipBuyerNotes"
+      EntityUsage="Table5SourceEO"
+      AliasName="WIP_BUYER_NOTES" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="WipOlNum"
+      EntityAttrName="WipOlNum"
+      EntityUsage="Table5SourceEO"
+      AliasName="WIP_OL_NUM" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="WipOlDate"
+      EntityAttrName="WipOlDate"
+      EntityUsage="Table5SourceEO"
+      AliasName="WIP_OL_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="WipDueDate"
+      EntityAttrName="WipDueDate"
+      EntityUsage="Table5SourceEO"
+      AliasName="WIP_DUE_DATE" >
+   </ViewAttribute>
+   <AttrArray Name="KeyAttributes">
+      <Item Value="ReqItemId" />
+   </AttrArray>
+</ViewObject>

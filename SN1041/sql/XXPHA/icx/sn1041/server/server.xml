@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<JboPackage
+   Name="server"
+   SeparateXMLFiles="true"
+   PackageName="xxpha.oracle.apps.icx.sn1041.server" >
+   <DesignTime>
+      <Attr Name="_ejbPackage" Value="false" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+   </DesignTime>
+   <Containee
+      Name="ActiveCartVO"
+      FullName="xxpha.oracle.apps.icx.sn1041.server.ActiveCartVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="AnalogAM"
+      FullName="xxpha.oracle.apps.icx.sn1041.server.AnalogAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="AnalogVO"
+      FullName="xxpha.oracle.apps.icx.sn1041.server.AnalogVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="DetailedAM"
+      FullName="xxpha.oracle.apps.icx.sn1041.server.DetailedAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="ParametersEamVO"
+      FullName="xxpha.oracle.apps.icx.sn1041.server.ParametersEamVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ParametersVO"
+      FullName="xxpha.oracle.apps.icx.sn1041.server.ParametersVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ReqQuantityDetailVO"
+      FullName="xxpha.oracle.apps.icx.sn1041.server.ReqQuantityDetailVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ReqStatusDetailVO"
+      FullName="xxpha.oracle.apps.icx.sn1041.server.ReqStatusDetailVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="SearchAM"
+      FullName="xxpha.oracle.apps.icx.sn1041.server.SearchAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="SearchResultsEamVO"
+      FullName="xxpha.oracle.apps.icx.sn1041.server.SearchResultsEamVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="SearchResultsVO"
+      FullName="xxpha.oracle.apps.icx.sn1041.server.SearchResultsVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="SessionAM"
+      FullName="xxpha.oracle.apps.icx.sn1041.server.SessionAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="SessionEO"
+      FullName="xxpha.oracle.apps.icx.sn1041.server.SessionEO"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="SessionVO"
+      FullName="xxpha.oracle.apps.icx.sn1041.server.SessionVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="Table5SourceEO"
+      FullName="xxpha.oracle.apps.icx.sn1041.server.Table5SourceEO"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="Table5SourceVO"
+      FullName="xxpha.oracle.apps.icx.sn1041.server.Table5SourceVO"
+      ObjectType="ViewObject" >
+   </Containee>
+</JboPackage>

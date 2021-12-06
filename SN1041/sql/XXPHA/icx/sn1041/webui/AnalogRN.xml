@@ -1,0 +1,129 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:stackLayout version="10.1.3_" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" prompt="Аналоги КИС" amDefName="xxpha.oracle.apps.icx.sn1041.server.AnalogAM" controllerClass="xxpha.oracle.apps.icx.sn1041.webui.AnalogCO">
+   <ui:contents>
+      <oa:messageStyledText id="item1"/>
+      <oa:advancedTable id="AnalogAdvTbl" viewName="AnalogVO1">
+         <ui:contents>
+            <oa:column id="ItemCodeCol">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader1" prompt="Номенклатурный номер"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="ItemCode" viewAttr="Segment1"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="ItemDescrCol">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader2" prompt="Описание позиции"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="ItemDescr" viewAttr="RelatedItemDescription"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="PrimaryUOMCol">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader3" prompt="ЕИ"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="PrimaryUOM" viewAttr="PrimaryUnitOfMeasure"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="Price" columnDataFormat="numberFormat">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader412" prompt="Цена"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="PriceViewMST" viewAttr="PriceView"/>
+               </ui:contents>
+            </oa:column>
+            <oa:columnGroup id="CSColumnGroup">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader4" prompt="Центральный склад"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:column id="CSTotalCol" columnDataFormat="numberFormat">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="CSTotalHeader" prompt="Наличное"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="CSTotal" viewAttr="CsTotalQty" dataType="NUMBER"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="CSAvailableCol" columnDataFormat="numberFormat">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="CSAvailableHeader" prompt="Доступное"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="CSAvailable" viewAttr="CsAvailQty" dataType="NUMBER"/>
+                     </ui:contents>
+                  </oa:column>
+               </ui:contents>
+            </oa:columnGroup>
+            <oa:columnGroup id="StoreColGroup">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader41" prompt="Цеховой склад"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:column id="StoreQuantityCol" columnDataFormat="numberFormat">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="StoreQuantityHeader" prompt="Наличное"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="StoreQuantity" dataType="NUMBER" viewAttr="StoreQuantity"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="StoreAvailableCol" columnDataFormat="numberFormat">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="StoreAvailableHeader" prompt="Доступное"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="StoreAvailable" viewAttr="StoreAvailableQuantity" dataType="NUMBER"/>
+                     </ui:contents>
+                  </oa:column>
+               </ui:contents>
+            </oa:columnGroup>
+            <oa:columnGroup id="HoldingStoreColGroup">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader411" prompt="Цеховые склады холдинга"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:column id="HoldingStoreQuantityCol" columnDataFormat="numberFormat">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="StoreQuantityHeader1" prompt="Наличное"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="HoldingStores" dataType="NUMBER" viewAttr="HoldingStoreQuantity"/>
+                     </ui:contents>
+                  </oa:column>
+                  <oa:column id="HolngStoresAvailableCol" columnDataFormat="numberFormat">
+                     <ui:columnHeader>
+                        <oa:sortableHeader id="StoreAvailableHeader1" prompt="Доступное"/>
+                     </ui:columnHeader>
+                     <ui:contents>
+                        <oa:messageStyledText id="HolngStoresAvailable" viewAttr="HolngStoreAvailableQuantity" dataType="NUMBER"/>
+                     </ui:contents>
+                  </oa:column>
+               </ui:contents>
+            </oa:columnGroup>
+            <oa:column id="AnalogTypeCol">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader62" prompt="Тип аналога"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="item5" viewAttr="TypeDescr"/>
+               </ui:contents>
+            </oa:column>
+         </ui:contents>
+         <ui:tableSelection>
+            <oa:multipleSelection id="multipleSelection1" viewAttr="Selected"/>
+         </ui:tableSelection>
+         <ui:tableActions>
+            <oa:flowLayout id="region1">
+               <ui:contents>
+                  <oa:submitButton id="AddAnalogToSearch" text="Добавить к выбору" prompt="Добавить к выбору"/>
+               </ui:contents>
+            </oa:flowLayout>
+         </ui:tableActions>
+      </oa:advancedTable>
+   </ui:contents>
+</oa:stackLayout>

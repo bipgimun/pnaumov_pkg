@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+
+<AppModule
+   Name="SearchAM"
+   ComponentClass="xxpha.oracle.apps.icx.sn1041.server.SearchAMImpl"
+   LoadComponentsLazily="true" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_deployType" Value="0" />
+   </DesignTime>
+   <ViewUsage
+      Name="SearchResultsVO1"
+      ViewObjectName="xxpha.oracle.apps.icx.sn1041.server.SearchResultsVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="StoreListVO1"
+      ViewObjectName="xxpha.oracle.apps.icx.sn1041.poplist.server.StoreListVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="RequisitionTypesVO1"
+      ViewObjectName="xxpha.oracle.apps.icx.sn1041.lov.server.RequisitionTypesVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="Table5SourceVO1"
+      ViewObjectName="xxpha.oracle.apps.icx.sn1041.server.Table5SourceVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="SubInvVO1"
+      ViewObjectName="xxpha.oracle.apps.icx.sn1041.lov.server.SubInvVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="SubInvVO2"
+      ViewObjectName="xxpha.oracle.apps.icx.sn1041.lov.server.SubInvVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="ActiveCartVO1"
+      ViewObjectName="xxpha.oracle.apps.icx.sn1041.server.ActiveCartVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="SubInvVO3"
+      ViewObjectName="xxpha.oracle.apps.icx.sn1041.lov.server.SubInvVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="ParametersVO1"
+      ViewObjectName="xxpha.oracle.apps.icx.sn1041.server.ParametersVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="RequisitionTypesEAMVO1"
+      ViewObjectName="xxpha.oracle.apps.icx.sn1041.lov.server.RequisitionTypesEAMVO" >
+   </ViewUsage>
+   <AppModuleUsage
+      Name="SessionAM1"
+      FullName="xxpha.oracle.apps.icx.sn1041.server.SessionAM" >
+   </AppModuleUsage>
+</AppModule>

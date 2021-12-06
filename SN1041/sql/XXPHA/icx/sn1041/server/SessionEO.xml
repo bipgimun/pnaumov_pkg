@@ -1,0 +1,386 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+
+<Entity
+   Name="SessionEO"
+   DBObjectType="table"
+   DBObjectName="XXPHA.XXPHA_SN1041_SESSION_V"
+   AliasName="SessionEO"
+   BindingStyle="OracleName"
+   UseGlueCode="false"
+   RowClass="xxpha.oracle.apps.icx.sn1041.server.SessionEOImpl"
+   DefClass="oracle.apps.fnd.framework.server.OAEntityDefImpl"
+   CollClass="oracle.apps.fnd.framework.server.OAEntityCache" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_defSuperClass" Value="oracle.apps.fnd.framework.server.OAEntityDefImpl" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <AttrArray Name="_publishEvents">
+      </AttrArray>
+      <Attr Name="_panelSchema" Value="view" />
+      <Attr Name="_codeGenFlag2" Value="Init|Access|DML" />
+   </DesignTime>
+   <Attribute
+      Name="SId"
+      IsUnique="true"
+      IsNotNull="true"
+      ColumnName="S_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_SESSION_V"
+      PrimaryKey="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="UserId"
+      IsNotNull="true"
+      ColumnName="USER_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_SESSION_V" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="RespId"
+      IsNotNull="true"
+      ColumnName="RESP_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_SESSION_V" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LoginId"
+      IsNotNull="true"
+      ColumnName="LOGIN_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_SESSION_V" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SessionDate"
+      IsNotNull="true"
+      ColumnName="SESSION_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="TIMESTAMP"
+      TableName="XXPHA.XXPHA_SN1041_SESSION_V" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="StoreId"
+      ColumnName="STORE_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_SESSION_V" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreatedBy"
+      IsNotNull="true"
+      ColumnName="CREATED_BY"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_SESSION_V" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreationDate"
+      IsNotNull="true"
+      ColumnName="CREATION_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="TIMESTAMP"
+      TableName="XXPHA.XXPHA_SN1041_SESSION_V" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdatedBy"
+      IsNotNull="true"
+      ColumnName="LAST_UPDATED_BY"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_SESSION_V" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdateDate"
+      IsNotNull="true"
+      ColumnName="LAST_UPDATE_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="TIMESTAMP"
+      TableName="XXPHA.XXPHA_SN1041_SESSION_V" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdateLogin"
+      ColumnName="LAST_UPDATE_LOGIN"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_SESSION_V" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ObjectVersionNumber"
+      ColumnName="OBJECT_VERSION_NUMBER"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_SESSION_V"
+      ChangeIndicator="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="WipEntityId"
+      ColumnName="WIP_ENTITY_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_SESSION_V" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Key
+      Name="SessioneoPrimaryKey" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.SessionEO.SId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_isPrimary" Value="true" />
+         <Attr Name="_DBObjectName" Value="SESSIONEO_PRIMARY_KEY" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005656457" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.SessionEO.SId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;S_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005656457" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005656458" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.SessionEO.UserId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;USER_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005656458" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005656459" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.SessionEO.RespId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;RESP_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005656459" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005656460" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.SessionEO.LoginId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LOGIN_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005656460" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005656461" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.SessionEO.SessionDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;SESSION_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005656461" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005656462" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.SessionEO.CreatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005656462" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005656463" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.SessionEO.CreationDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATION_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005656463" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005656464" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.SessionEO.LastUpdatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005656464" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005656465" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.SessionEO.LastUpdateDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATE_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005656465" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005662041" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.SessionEO.SId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;S_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005662041" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005662042" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.SessionEO.UserId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;USER_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005662042" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005662043" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.SessionEO.RespId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;RESP_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005662043" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005662044" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.SessionEO.LoginId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LOGIN_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005662044" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005662045" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.SessionEO.SessionDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;SESSION_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005662045" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005662046" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.SessionEO.CreatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005662046" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005662047" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.SessionEO.CreationDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATION_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005662047" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005662048" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.SessionEO.LastUpdatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005662048" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005662049" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.SessionEO.LastUpdateDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATE_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005662049" />
+      </DesignTime>
+   </Key>
+</Entity>

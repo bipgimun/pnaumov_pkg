@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:stackLayout version="10.1.3_" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" controllerClass="xxpha.oracle.apps.icx.sn1041.webui.StatusDetailedCO" amDefName="xxpha.oracle.apps.icx.sn1041.server.DetailedAM">
+   <ui:contents>
+      <oa:advancedTable id="StatusDetailTbl" viewName="ReqStatusDetailVO1">
+         <ui:contents>
+            <oa:column id="ReqNumber">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader1" prompt="Номер заявки"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="ReqNumberMST" viewAttr="Segment1"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="column11">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader11" prompt="Строка заявки"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="item11" viewAttr="LineNum"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="column12">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader12" prompt="Нужная дата по заявке"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="item12" viewAttr="NeedByDate" dataType="DATE"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="column13">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader13" prompt="Номенклатурный номер"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="item13" viewAttr="ItemName"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="column14">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader14" prompt="Описание"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="item14" viewAttr="ItemDescription"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="column15">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader15" prompt="ЕИ"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="item15" viewAttr="PrimaryUomCode"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="StatusQuantityCol" columnDataFormat="numberFormat">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader16" prompt="Кол-во"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="item16" viewAttr="StatusQuantity" dataType="NUMBER"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="PromisedDateCol">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader17" prompt="Ожидаемая дата по ЗП"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="item17" viewAttr="PromisedDate" dataType="DATE"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="StatusCol">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader18" prompt="Статус"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="item18" viewAttr="Status"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="FullNameCol">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader19" prompt="ФИО исполнителя"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="item19" viewAttr="FullName"/>
+               </ui:contents>
+            </oa:column>
+         </ui:contents>
+      </oa:advancedTable>
+   </ui:contents>
+</oa:stackLayout>

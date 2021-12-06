@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="SessionVO"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   RowClass="xxpha.oracle.apps.icx.sn1041.server.SessionVORowImpl"
+   ComponentClass="xxpha.oracle.apps.icx.sn1041.server.SessionVOImpl"
+   FetchMode="FETCH_AS_NEEDED"
+   Passivate="None"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+SELECT SessionEO.S_ID, 
+       SessionEO.USER_ID, 
+       SessionEO.RESP_ID, 
+       SessionEO.LOGIN_ID, 
+       SessionEO.SESSION_DATE, 
+       SessionEO.STORE_ID, 
+       SessionEO.CREATED_BY, 
+       SessionEO.CREATION_DATE, 
+       SessionEO.LAST_UPDATED_BY, 
+       SessionEO.LAST_UPDATE_DATE, 
+       SessionEO.LAST_UPDATE_LOGIN, 
+       SessionEO.OBJECT_VERSION_NUMBER,
+       org.ORGANIZATION_NAME,
+       SessionEO.WIP_ENTITY_ID 
+FROM XXPHA.XXPHA_SN1041_SESSION_V SessionEO, xxpha_organizations_v org
+where SessionEO.store_id = org.ORGANIZATION_ID
+and SessionEO.S_ID = (select max(SessionEO.S_ID) from XXPHA.XXPHA_SN1041_SESSION_V SessionEO1
+where 1=1
+and SessionEO1.USER_ID = :1 
+and SessionEO.RESP_ID = :2)
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess" />
+   </DesignTime>
+   <EntityUsage
+      Name="SessionEO"
+      Entity="xxpha.oracle.apps.icx.sn1041.server.SessionEO" >
+      <DesignTime>
+         <Attr Name="_queryClause" Value="false" />
+      </DesignTime>
+   </EntityUsage>
+   <ViewAttribute
+      Name="SId"
+      IsNotNull="true"
+      EntityAttrName="SId"
+      EntityUsage="SessionEO"
+      AliasName="S_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="UserId"
+      IsNotNull="true"
+      EntityAttrName="UserId"
+      EntityUsage="SessionEO"
+      AliasName="USER_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RespId"
+      IsNotNull="true"
+      EntityAttrName="RespId"
+      EntityUsage="SessionEO"
+      AliasName="RESP_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LoginId"
+      IsNotNull="true"
+      EntityAttrName="LoginId"
+      EntityUsage="SessionEO"
+      AliasName="LOGIN_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SessionDate"
+      IsNotNull="true"
+      EntityAttrName="SessionDate"
+      EntityUsage="SessionEO"
+      AliasName="SESSION_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="StoreId"
+      EntityAttrName="StoreId"
+      EntityUsage="SessionEO"
+      AliasName="STORE_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreatedBy"
+      IsNotNull="true"
+      EntityAttrName="CreatedBy"
+      EntityUsage="SessionEO"
+      AliasName="CREATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreationDate"
+      IsNotNull="true"
+      EntityAttrName="CreationDate"
+      EntityUsage="SessionEO"
+      AliasName="CREATION_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdatedBy"
+      IsNotNull="true"
+      EntityAttrName="LastUpdatedBy"
+      EntityUsage="SessionEO"
+      AliasName="LAST_UPDATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateDate"
+      IsNotNull="true"
+      EntityAttrName="LastUpdateDate"
+      EntityUsage="SessionEO"
+      AliasName="LAST_UPDATE_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateLogin"
+      EntityAttrName="LastUpdateLogin"
+      EntityUsage="SessionEO"
+      AliasName="LAST_UPDATE_LOGIN" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ObjectVersionNumber"
+      EntityAttrName="ObjectVersionNumber"
+      EntityUsage="SessionEO"
+      AliasName="OBJECT_VERSION_NUMBER" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="OrganizationName"
+      IsPersistent="false"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="ORGANIZATION_NAME"
+      Passivate="true"
+      Expression="ORGANIZATION_NAME"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="WipEntityId"
+      EntityAttrName="WipEntityId"
+      EntityUsage="SessionEO"
+      AliasName="WIP_ENTITY_ID" >
+   </ViewAttribute>
+</ViewObject>

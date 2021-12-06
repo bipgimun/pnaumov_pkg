@@ -1,0 +1,26 @@
+{
+    "query": {
+        "bool": {
+            "must": [
+                {
+                    "query_string": {
+                        "query": "шар* под*",
+                        "default_operator": "AND",
+                        "analyze_wildcard": true
+                    }
+                },
+                {
+                    "term": {
+                        "store_id_list": 121020
+                    }
+                },
+                {
+                    "term": {
+                        "oe_id": 86
+                    }
+                }
+            ]
+        }
+    },
+    "size": 150
+}

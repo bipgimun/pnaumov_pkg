@@ -1,0 +1,128 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oa:stackLayout version="10.1.3_" xml:lang="en-US" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:ui="http://xmlns.oracle.com/uix/ui" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$" controllerClass="xxpha.oracle.apps.icx.sn1041.webui.DetailedCO" amDefName="xxpha.oracle.apps.icx.sn1041.server.DetailedAM" prompt="Детализация">
+   <ui:contents>
+      <oa:formattedText id="quantityDetailTitle" styleClass="OraHeaderBarText" text="Детализация по складу"/>
+      <oa:spacer id="sp"/>
+      <oa:advancedTable id="ReqQuantityDetailAT" blockSize="1000" width="100%" viewName="ReqQuantityDetailVO1" rowNavigationPolicy="page" horizontalScrollEnabled="false">
+         <ui:contents>
+            <oa:column id="OE">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader83" prompt="ОЕ"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="OuOrganizationNameMST" viewAttr="OuOrganizationName"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="WarehouseCL">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader4" prompt="Склад"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="Warehouse1" dataType="VARCHAR2" prompt="Склад" viewAttr="OrganizationCode" maximumLength="9"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="ItemNameCL">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader2" prompt="Номенклатурный номер"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="ItemName1" dataType="VARCHAR2" prompt="Номенклатурный номер" viewAttr="ItemName" maximumLength="8"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="ItemDescriptionCL">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader1" prompt="Описание позиции"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="ItemDescription1" dataType="VARCHAR2" prompt="Наименование позиции" viewAttr="ItemDescription" maximumLength="16"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="PrimaryUomCodeCL">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader3" prompt="ЕИ"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="PrimaryUomCode1" dataType="VARCHAR2" prompt="Единица измерения" viewAttr="PrimaryUomCode" maximumLength="16"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="WarehouseCL1" columnDataFormat="iconButtonFormat">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader41" prompt="Партия"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:stackLayout id="region2">
+                     <ui:contents>
+                        <oa:popUp id="LotPopup" autoResizeEnabled="true" isModal="true" popupTitle="Детали партии" popupRegion="/xxpha/oracle/apps/xxpha/SN976/webui/LotRN" popupType="ParameterizedPopup" popupParameters="OrgId={@OrganizationId}&amp;ItemId={@InventoryItemId}"/>
+                        <oa:image id="actionsImage" popupEnabled="true" popupId="LotPopup" source="detailsicon_popup_enabled.gif" rendered="${oa.ReqQuantityDetailVO1.Islot}"/>
+                     </ui:contents>
+                  </oa:stackLayout>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="ProjectCL">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader5" prompt="Проект"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="ProjectNum1" dataType="VARCHAR2" prompt="Проект" viewAttr="ProjectNumber" maximumLength="11"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="TaskCL">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader51" prompt="Задача"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="TaskNum11" dataType="VARCHAR2" prompt="Задача" viewAttr="TaskNumber" maximumLength="8"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="AvailqtyCL" columnDataFormat="numberFormat">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader6" prompt="Доступное количество"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="Availqty1" dataType="NUMBER" prompt="Доступное кол-во" viewAttr="PositivAvailQuantity"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="ReservqtyCL" columnDataFormat="numberFormat">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader7" prompt="Зарезервированное количество"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="Reservqty1" dataType="NUMBER" prompt="Зарезервированное кол-во" viewAttr="ReservedQuantity"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="ReqCL">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader8" prompt="ВнЗ"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="ReqNum1" dataType="VARCHAR2" prompt="Номер ВнЗ" viewAttr="RequisitionNumber" maximumLength="7"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="LineCL">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader81" prompt="Строка ВнЗ"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="LineNum11" dataType="NUMBER" prompt="Строка ВнЗ" viewAttr="RequisitionLineNum"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="salesOrderCL">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader82" prompt="Заказ"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="salesOrderNum" viewAttr="SalesOrderNumber"/>
+               </ui:contents>
+            </oa:column>
+            <oa:column id="RequestorCL" columnDataFormat="textFormat">
+               <ui:columnHeader>
+                  <oa:sortableHeader id="sortableHeader9" prompt="Заявитель"/>
+               </ui:columnHeader>
+               <ui:contents>
+                  <oa:messageStyledText id="Requestor1" dataType="VARCHAR2" prompt="Заявитель" maximumLength="240" viewAttr="RequestorName"/>
+               </ui:contents>
+            </oa:column>
+         </ui:contents>
+      </oa:advancedTable>
+   </ui:contents>
+</oa:stackLayout>

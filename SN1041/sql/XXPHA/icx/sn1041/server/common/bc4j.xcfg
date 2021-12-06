@@ -1,0 +1,40 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig>
+   <AppModuleConfigBag>
+      <AppModuleConfig name="SearchAMLocal">
+         <DeployPlatform>LOCAL</DeployPlatform>
+         <JDBCName>DVLP_LC</JDBCName>
+         <jbo.project>SN1041Project1</jbo.project>
+         <AppModuleJndiName>xxpha.oracle.apps.icx.sn1041.server.SearchAM</AppModuleJndiName>
+         <MULTIORG_ENABLED>S</MULTIORG_ENABLED>
+         <ApplicationName>xxpha.oracle.apps.icx.sn1041.server.SearchAM</ApplicationName>
+      </AppModuleConfig>
+      <AppModuleConfig name="SessionAMLocal">
+         <AppModuleJndiName>xxpha.oracle.apps.icx.sn1041.server.SessionAM</AppModuleJndiName>
+         <DeployPlatform>LOCAL</DeployPlatform>
+         <JDBCName>EDay2</JDBCName>
+         <ApplicationName>xxpha.oracle.apps.icx.sn1041.server.SessionAM</ApplicationName>
+         <jbo.project>SN1041Project1</jbo.project>
+      </AppModuleConfig>
+      <AppModuleConfig name="SearchAM">
+         <ApplicationName>xxpha.oracle.apps.icx.sn1041.server.SearchAM</ApplicationName>
+         <DeployPlatform>LOCAL</DeployPlatform>
+         <MULTIORG_ENABLED>S</MULTIORG_ENABLED>
+         <JDBCName>DVLP_LC</JDBCName>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <ConnectionDefinition name="DVLP_LC">
+      <ENTRY name="JDBC_PORT" value="1521"/>
+      <ENTRY name="ConnectionType" value="JDBC"/>
+      <ENTRY name="HOSTNAME" value="csrvap61.int.corp.phosagro.ru"/>
+      <ENTRY name="user" value="apps"/>
+      <ENTRY name="ConnectionName" value="DVLP_LC"/>
+      <ENTRY name="ServiceName" value="LC_DVLP"/>
+      <ENTRY name="JdbcDriver" value="oracle.jdbc.OracleDriver"/>
+      <ENTRY name="password">
+         <![CDATA[{904}0588C982E7A49F6868FB420CE47F1EF947]]>
+      </ENTRY>
+      <ENTRY name="ORACLE_JDBC_TYPE" value="thin"/>
+      <ENTRY name="DeployPassword" value="true"/>
+   </ConnectionDefinition>
+</BC4JConfig>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+
+<AppModule
+   Name="LovsAM"
+   ComponentClass="xxpha.oracle.apps.icx.sn1041.lov.server.LovsAMImpl" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_deployType" Value="0" />
+   </DesignTime>
+   <ViewUsage
+      Name="StorListVO1"
+      ViewObjectName="xxpha.oracle.apps.icx.sn1041.lov.server.StorListVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="WipEntitiesListVO1"
+      ViewObjectName="xxpha.oracle.apps.icx.sn1041.lov.server.WipEntitiesListVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="WorkOrdersVO1"
+      ViewObjectName="xxpha.oracle.apps.icx.sn1041.lov.server.WorkOrdersVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="OperationsVO1"
+      ViewObjectName="xxpha.oracle.apps.icx.sn1041.lov.server.OperationsVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="StorListVO2"
+      ViewObjectName="xxpha.oracle.apps.icx.sn1041.lov.server.StorListVO" >
+   </ViewUsage>
+</AppModule>

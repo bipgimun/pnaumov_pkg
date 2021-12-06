@@ -1,0 +1,667 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+
+<Entity
+   Name="Table5SourceEO"
+   DBObjectType="table"
+   DBObjectName="XXPHA.XXPHA_SN1041_REQ_ITEMS"
+   AliasName="Table5SourceEO"
+   BindingStyle="OracleName"
+   UseGlueCode="false"
+   RowClass="xxpha.oracle.apps.icx.sn1041.server.Table5SourceEOImpl"
+   DefClass="oracle.apps.fnd.framework.server.OAEntityDefImpl"
+   CollClass="oracle.apps.fnd.framework.server.OAEntityCache" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <AttrArray Name="_publishEvents">
+      </AttrArray>
+      <Attr Name="_panelSchema" Value="view" />
+      <Attr Name="_codeGenFlag2" Value="Access" />
+   </DesignTime>
+   <Attribute
+      Name="LineNum"
+      ColumnName="LINE_NUM"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ItemId"
+      IsNotNull="true"
+      ColumnName="ITEM_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Descriptions"
+      Precision="500"
+      ColumnName="DESCRIPTIONS"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="500" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ItemCode"
+      Precision="50"
+      ColumnName="ITEM_CODE"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="50" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CatalogNum"
+      Precision="200"
+      ColumnName="CATALOG_NUM"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="200" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SupDescription"
+      Precision="4000"
+      ColumnName="SUP_DESCRIPTION"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Uom"
+      Precision="100"
+      ColumnName="UOM"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="NeedByDate"
+      ColumnName="NEED_BY_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="TIMESTAMP"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Quantity"
+      ColumnName="QUANTITY"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="UnitPrice"
+      ColumnName="UNIT_PRICE"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SupplierId"
+      ColumnName="SUPPLIER_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SourceOrganizationId"
+      ColumnName="SOURCE_ORGANIZATION_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DestOrganizationId"
+      ColumnName="DEST_ORGANIZATION_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="PreparerId"
+      ColumnName="PREPARER_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DeliverToLocationId"
+      ColumnName="DELIVER_TO_LOCATION_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DeliverToRequestorId"
+      ColumnName="DELIVER_TO_REQUESTOR_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="OrgId"
+      ColumnName="ORG_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ReqLineId"
+      ColumnName="REQ_LINE_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="IsProcessed"
+      IsNotNull="true"
+      Precision="1"
+      ColumnName="IS_PROCESSED"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CsAvailableQuantity"
+      ColumnName="CS_AVAILABLE_QUANTITY"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Supplier"
+      Precision="400"
+      ColumnName="SUPPLIER"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="400" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DeliveryDate"
+      ColumnName="DELIVERY_DATE"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="Number"
+      SQLType="TIMESTAMP"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Deactivation"
+      Precision="100"
+      ColumnName="DEACTIVATION"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="IndexName"
+      Precision="100"
+      ColumnName="INDEX_NAME"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DeleteLine"
+      Precision="20"
+      ColumnName="DELETE_LINE"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="20" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="RequisitionType"
+      Precision="10"
+      ColumnName="REQUISITION_TYPE"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="10" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreatedBy"
+      IsNotNull="true"
+      ColumnName="CREATED_BY"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreationDate"
+      IsNotNull="true"
+      ColumnName="CREATION_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="TIMESTAMP"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdatedBy"
+      IsNotNull="true"
+      ColumnName="LAST_UPDATED_BY"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdateDate"
+      IsNotNull="true"
+      ColumnName="LAST_UPDATE_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="TIMESTAMP"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdateLogin"
+      ColumnName="LAST_UPDATE_LOGIN"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ObjectVersionNumber"
+      ColumnName="OBJECT_VERSION_NUMBER"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS"
+      ChangeIndicator="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ReqItemId"
+      IsNotNull="true"
+      ColumnName="REQ_ITEM_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS"
+      PrimaryKey="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ReqHeaderNum"
+      IsUpdateable="false"
+      Precision="100"
+      ColumnName="REQ_HEADER_NUM"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ReqLineQty"
+      IsUpdateable="false"
+      ColumnName="REQ_LINE_QTY"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Status"
+      IsUpdateable="false"
+      Precision="255"
+      ColumnName="STATUS"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="255" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="OperationSeqNum"
+      ColumnName="OPERATION_SEQ_NUM"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="WipEntityId"
+      ColumnName="WIP_ENTITY_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Cfo"
+      Precision="150"
+      ColumnName="CFO"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="150" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Mvz"
+      Precision="150"
+      ColumnName="MVZ"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="150" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="WipDateRequired"
+      ColumnName="WIP_DATE_REQUIRED"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="TIMESTAMP"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="WipLocatorId"
+      ColumnName="WIP_LOCATOR_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="WipSubinventory"
+      Precision="50"
+      ColumnName="WIP_SUBINVENTORY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="50" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="WipGlDate"
+      ColumnName="WIP_GL_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="TIMESTAMP"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="WipBuyerNotes"
+      Precision="240"
+      ColumnName="WIP_BUYER_NOTES"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="150" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="WipOlDate"
+      ColumnName="WIP_OL_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="TIMESTAMP"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="WipOlNum"
+      Precision="150"
+      ColumnName="WIP_OL_NUM"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="150" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="WipDueDate"
+      ColumnName="WIP_DUE_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="TIMESTAMP"
+      TableName="XXPHA.XXPHA_SN1041_REQ_ITEMS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Key
+      Name="SysC005634248" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.Table5SourceEO.ItemId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;ITEM_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005634248" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005634249" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.Table5SourceEO.IsProcessed" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;IS_PROCESSED&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005634249" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005634250" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.Table5SourceEO.CreatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005634250" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005634251" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.Table5SourceEO.CreationDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATION_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005634251" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005634252" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.Table5SourceEO.LastUpdatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005634252" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005634253" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.Table5SourceEO.LastUpdateDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATE_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005634253" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005634327" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.Table5SourceEO.ReqItemId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;REQ_ITEM_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005634327" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="Table5sourceeoPrimaryKey" >
+      <AttrArray Name="Attributes">
+         <Item Value="xxpha.oracle.apps.icx.sn1041.server.Table5SourceEO.ReqItemId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_isPrimary" Value="true" />
+         <Attr Name="_DBObjectName" Value="TABLE5SOURCEEO_PRIMARY_KEY" />
+      </DesignTime>
+   </Key>
+</Entity>

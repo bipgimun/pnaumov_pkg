@@ -1,0 +1,369 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="AnalogVO"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   RowClass="xxpha.oracle.apps.icx.sn1041.server.AnalogVORowImpl"
+   ComponentClass="xxpha.oracle.apps.icx.sn1041.server.AnalogVOImpl"
+   ComponentInterface="xxpha.oracle.apps.icx.sn1041.server.common.AnalogVO"
+   ClientProxyName="xxpha.oracle.apps.icx.sn1041.server.client.AnalogVOClient"
+   FetchMode="FETCH_AS_NEEDED"
+   Passivate="None"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+with a as
+ (select ri.ORGANIZATION_ID,
+         ri.RELATED_ITEM_ID,
+         ri.RELATED_ITEM_DESCRIPTION,
+         ri.ATTR_NUM1,
+         ri.START_DATE,
+         ri.END_DATE
+    from MTL_RELATED_ITEMS_ALL_V ri, mtl_system_items_b msi
+   where 1 = 1
+     and msi.INVENTORY_ITEM_ID = ri.INVENTORY_ITEM_ID
+     and msi.ORGANIZATION_ID = ri.ORGANIZATION_ID
+     and ri.RELATIONSHIP_TYPE_ID = 2
+     and msi.INVENTORY_ITEM_ID = :1
+  union
+  select ri.ORGANIZATION_ID,
+         ri.INVENTORY_ITEM_ID,
+         ri.INVENTORY_ITEM_DESCRIPTION,
+         ri.ATTR_NUM1,
+         ri.START_DATE,
+         ri.END_DATE
+    from MTL_RELATED_ITEMS_ALL_V ri, mtl_system_items_b msi
+   where 1 = 1
+     and msi.INVENTORY_ITEM_ID = ri.RELATED_ITEM_ID
+     and msi.ORGANIZATION_ID = ri.ORGANIZATION_ID
+     and ri.RECIPROCAL_FLAG = 'Y'
+     and ri.RELATIONSHIP_TYPE_ID = 2
+     and msi.INVENTORY_ITEM_ID = :2
+  ),
+s as
+ (select organization_type,
+         organization_id,
+         sales_order_id,
+         reserved_quantity,
+         DECODE(SIGN(o.available_quantity), -1, 0, o.available_quantity) AS positiv_avail_quantity,
+         o.inventory_item_id
+    from xxpha_sn976_onhand_info_mv o
+   where 1 = 1)
+select MSI1.SEGMENT1,
+       a.ORGANIZATION_ID,
+       a.RELATED_ITEM_ID,
+       a.RELATED_ITEM_DESCRIPTION,
+       a.ATTR_NUM1,
+       a.START_DATE,
+       a.END_DATE,
+       (select fv.DESCRIPTION
+          from xxpha_flex_values_v fv
+         where fv.FLEX_VALUE_SET_NAME = 'XXPHA_ITEM_ANALOG_TYPE'
+           and fv.FLEX_VALUE = a.attr_num1) type_descr,
+       MSI1.PRIMARY_UNIT_OF_MEASURE,
+       nvl(q.cs_total_qty, 0) as cs_total_qty,
+       nvl(q.cs_avail_qty, 0) as cs_avail_qty,
+       nvl(q.STORE_QUANTITY, 0) as STORE_QUANTITY,
+       nvl(q.STORE_AVAILABLE_QUANTITY, 0) as STORE_AVAILABLE_QUANTITY,
+       nvl(q.HOLDING_STORE_QUANTITY, 0) as HOLDING_STORE_QUANTITY,
+       nvl(q.HOLNG_STORE_AVAILABLE_QUANTITY, 0) as HOLNG_STORE_AVAILABLE_QUANTITY,
+       xxpha_sn1041_pkg.get_item_price(:3, msi1.INVENTORY_ITEM_ID, null) PRICE 
+  from a,
+       mtl_system_items_b msi1,
+       (select 
+         s.inventory_item_id,
+         SUM(CASE
+               WHEN s.organization_type = 0 THEN
+                NVL2(s.sales_order_id,
+                     s.reserved_quantity,
+                     s.positiv_avail_quantity)
+               ELSE
+                0
+             END) AS cs_total_qty,
+         SUM(CASE
+               WHEN s.organization_type = 0 THEN
+                NVL2(s.sales_order_id, 0, s.positiv_avail_quantity)
+               ELSE
+                0
+             END) AS cs_avail_qty,
+         SUM(CASE
+               WHEN s.organization_type = 1 and s.organization_id = :4 THEN
+                NVL2(s.sales_order_id,
+                     s.reserved_quantity,
+                     s.positiv_avail_quantity)
+               ELSE
+                0
+             END) AS STORE_QUANTITY,
+         SUM(CASE
+               WHEN s.organization_type = 1 and s.organization_id = :5 THEN
+                NVL2(s.sales_order_id, 0, s.positiv_avail_quantity)
+               ELSE
+                0
+             END) AS STORE_AVAILABLE_QUANTITY,
+         SUM(CASE
+               WHEN s.organization_type = 1 and s.organization_id <> :6 THEN
+                NVL2(s.sales_order_id,
+                     s.reserved_quantity,
+                     s.positiv_avail_quantity)
+               ELSE
+                0
+             END) AS HOLDING_STORE_QUANTITY,
+         SUM(CASE
+               WHEN s.organization_type = 1 and s.organization_id <> :7 THEN
+                NVL2(s.sales_order_id, 0, s.positiv_avail_quantity)
+               ELSE
+                0
+             END) AS HOLNG_STORE_AVAILABLE_QUANTITY
+          from s
+         where 1 = 1
+           and ((s.organization_type = 1) or
+               (s.organization_type = 0 and s.organization_id = :8))
+         group by s.inventory_item_id) q
+ where 1 = 1
+   and msi1.INVENTORY_ITEM_ID = a.RELATED_ITEM_ID
+   and msi1.ORGANIZATION_ID = a.ORGANIZATION_ID
+   and q.inventory_item_id(+) = a.RELATED_ITEM_ID
+   AND sysdate between nvl(a.START_DATE, sysdate - 1) and
+       nvl(a.END_DATE, sysdate + 1)
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess" />
+   </DesignTime>
+   <ViewAttribute
+      Name="Segment1"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="40"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="SEGMENT1"
+      Expression="SEGMENT1"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="40" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="OrganizationId"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="ORGANIZATION_ID"
+      Expression="ORGANIZATION_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RelatedItemId"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="RELATED_ITEM_ID"
+      Expression="RELATED_ITEM_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RelatedItemDescription"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="240"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="RELATED_ITEM_DESCRIPTION"
+      Expression="RELATED_ITEM_DESCRIPTION"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="240" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AttrNum1"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="150"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="ATTR_NUM1"
+      Expression="ATTR_NUM1"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="150" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="StartDate"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="START_DATE"
+      Expression="START_DATE"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="EndDate"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="END_DATE"
+      Expression="END_DATE"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="TypeDescr"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="240"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="TYPE_DESCR"
+      Expression="TYPE_DESCR"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="240" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PrimaryUnitOfMeasure"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="25"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="PRIMARY_UNIT_OF_MEASURE"
+      Expression="PRIMARY_UNIT_OF_MEASURE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="25" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CsTotalQty"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="CS_TOTAL_QTY"
+      Expression="CS_TOTAL_QTY"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CsAvailQty"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="CS_AVAIL_QTY"
+      Expression="CS_AVAIL_QTY"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="StoreQuantity"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="STORE_QUANTITY"
+      Expression="STORE_QUANTITY"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="StoreAvailableQuantity"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="STORE_AVAILABLE_QUANTITY"
+      Expression="STORE_AVAILABLE_QUANTITY"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="HoldingStoreQuantity"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="HOLDING_STORE_QUANTITY"
+      Expression="HOLDING_STORE_QUANTITY"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="HolngStoreAvailableQuantity"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="HOLNG_STORE_AVAILABLE_QUANTITY"
+      Expression="HOLNG_STORE_AVAILABLE_QUANTITY"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Selected"
+      IsSelected="false"
+      IsPersistent="false"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VIEW_ATTR"
+      Passivate="true"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Price"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="PRICE"
+      Expression="PRICE"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PriceView"
+      IsUpdateable="false"
+      IsSelected="false"
+      IsPersistent="false"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VIEW_ATTR"
+      Passivate="true"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+</ViewObject>

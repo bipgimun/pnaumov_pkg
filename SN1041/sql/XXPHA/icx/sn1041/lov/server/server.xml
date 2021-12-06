@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<JboPackage
+   Name="server"
+   SeparateXMLFiles="true"
+   PackageName="xxpha.oracle.apps.icx.sn1041.lov.server" >
+   <DesignTime>
+      <Attr Name="_ejbPackage" Value="false" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+   </DesignTime>
+   <Containee
+      Name="LovsAM"
+      FullName="xxpha.oracle.apps.icx.sn1041.lov.server.LovsAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="OperationsVO"
+      FullName="xxpha.oracle.apps.icx.sn1041.lov.server.OperationsVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="RequisitionTypesVO"
+      FullName="xxpha.oracle.apps.icx.sn1041.lov.server.RequisitionTypesVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="StorListEamVO"
+      FullName="xxpha.oracle.apps.icx.sn1041.lov.server.StorListEamVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="StorListVO"
+      FullName="xxpha.oracle.apps.icx.sn1041.lov.server.StorListVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="SubInvVO"
+      FullName="xxpha.oracle.apps.icx.sn1041.lov.server.SubInvVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="WipEntitiesListVO"
+      FullName="xxpha.oracle.apps.icx.sn1041.lov.server.WipEntitiesListVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="WorkOrdersVO"
+      FullName="xxpha.oracle.apps.icx.sn1041.lov.server.WorkOrdersVO"
+      ObjectType="ViewObject" >
+   </Containee>
+</JboPackage>
